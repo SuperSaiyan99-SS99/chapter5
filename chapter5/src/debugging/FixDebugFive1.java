@@ -21,7 +21,7 @@ public class FixDebugFive1
 		usersChoice= Integer.parseInt(usersChoiceString);
 		if(usersChoice == 1 || usersChoice == 2)
 			bill = bill + HIGH_PRICE;
-		else
+		if (usersChoice == 3 || usersChoice == 4)
 			bill = bill + MED_PRICE;
 		usersChoiceString = JOptionPane.showInputDialog(null, "Fries with that?\n1 - Yes\n2 - No");
 		usersChoice = Integer.parseInt(usersChoiceString);
