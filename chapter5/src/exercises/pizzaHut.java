@@ -4,19 +4,22 @@ import java.util.Scanner;
 
 public class pizzaHut {
 	
+	public static String size;
+	public static String pizzaKind;
+	public static String toppingsChoice;
+	public static String toppingsAmountString;
+	public static int toppingsAmount;
+	public static final double MEDIUM_COST = 9.99;
+	public static final double LARGE_COST = 12.99;
+	public static final double SMALL_COST = 6.99;
+	public static final double TOPPINGS_COST = 0.50;
+	public static final double totalPrice = 0.00;
 	public static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		String choiceYes;
-		String toppingsChoice;
-		String size;
-		String pizzaKind;
 		String choiceHotDog;
-		String toppingsAmount;
-		double mediumCost = 9.99;
-		double largeCost = 12.99;
-		double smallCost = 6.99;
-		double totalPrice;
+		final double HOT_DOG_COST = 4.99;
 		
 		System.out.print("Would you like a pizza? Yes or No? >>>>>> ");
 		choiceYes = input.nextLine();
@@ -28,37 +31,28 @@ public class pizzaHut {
 				size = input.nextLine();
 				if("small".equalsIgnoreCase(size))
 				{
-					System.out.println("You said " + size + " pizza size.");
-					System.out.print("What kind of Pizza do you want? Pepperoni, Sausage, Chesse?");
-					pizzaKind = input.nextLine();
+					type();
 					if("Pepperoni".equalsIgnoreCase(pizzaKind)||"Sausage".equalsIgnoreCase(pizzaKind)||
 							"Cheese".equalsIgnoreCase(pizzaKind))
 					{
-						System.out.print("How many toppings would you like? None, one, two, three, four?");
-						toppingsAmount = input.nextLine();
-						if("none".equalsIgnoreCase(toppingsAmount))
+						System.out.print("How many toppings would you like? 0, 1, 2, 3, 4?");
+						toppingsAmountString = input.nextLine();
+						if("0".equals(toppingsAmountString))
 						{
-							System.out.print("You will get nothing on your pizza.");
-							totalPrice = smallCost;
-							System.out.println("Your total comes to $" + totalPrice);
+							smallPrice();
 						}
-						if("one".equalsIgnoreCase(toppingsAmount))
+						if("1".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of topping do you want? Extra cheese, green peppers, black olives, onions?");
-							toppingsChoice = input.nextLine();
+							one();
 							if("Extra cheese".equalsIgnoreCase(toppingsChoice)||"Green peppers".equalsIgnoreCase(toppingsChoice)
 									||"Black olives".equalsIgnoreCase(toppingsChoice)||"Onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = smallCost + 0.50;
-								System.out.println("Your total comes to $" + totalPrice);
+								smallPrice();
 							}
 						}
-						if("two".equalsIgnoreCase(toppingsAmount))
+						if("2".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
-									+ "Start with topping on most left and end with topping on most right. Ex: extra cheese and onions");
-							toppingsChoice = input.nextLine();
+							two();
 							if("Extra cheese and green peppers".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese and black olives".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese and onions".equalsIgnoreCase(toppingsChoice)
@@ -66,68 +60,51 @@ public class pizzaHut {
 									||"Green peppers and onions".equalsIgnoreCase(toppingsChoice)
 									||"Black olives and onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = smallCost + 1.00;
-								System.out.println("Your total comes to $" + totalPrice);
+								smallPrice();
 							}
 						}
-						if("three".equalsIgnoreCase(toppingsAmount))
+						if("3".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
-									+ "Start with topping on most left and end with topping on most right. "
-									+ "Ex: extra cheese, green peppers and onions");
-							toppingsChoice = input.nextLine();
+							three();
 							if("Extra cheese, green peppers and black olives".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese, green peppers and onions".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese, black olives and onions".equalsIgnoreCase(toppingsChoice)
 									||"Green peppers, black olives and onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = smallCost + 1.50;
-								System.out.println("Your total comes to $" + totalPrice);
+								smallPrice();
 							}
 						}
-						if("four".equalsIgnoreCase(toppingsAmount))
+						if("4".equals(toppingsAmountString))
 						{
-							System.out.print("You will get extra cheese, green peppers, black olives, and onions on your pizza.");
-							totalPrice = smallCost + 2.00;
-							System.out.println("Your total comes to $" + totalPrice);
+							toppingsChoice = "extra cheese, green peppers, black olives, and onions";
+							smallPrice();
 						}
 					}
 				}
 				if ("medium".equalsIgnoreCase(size))
 				{
-					System.out.println("You said " + size + " pizza size.");
-					System.out.print("What kind of Pizza do you want? Pepperoni, Sausage, Chesse?");
-					pizzaKind = input.nextLine();
+					type();
 					if("Pepperoni".equalsIgnoreCase(pizzaKind)||"Sausage".equalsIgnoreCase(pizzaKind)||
 							"Cheese".equalsIgnoreCase(pizzaKind))
 					{
-						System.out.print("How many toppings would you like? None, one, two, three, four?");
-						toppingsAmount = input.nextLine();
-						if("none".equalsIgnoreCase(toppingsAmount))
+						System.out.print("How many toppings would you like? 0, 1, 2, 3, 4?");
+						toppingsAmountString = input.nextLine();
+						if("0".equals(toppingsAmountString))
 						{
-							System.out.print("You will get nothing on your pizza.");
-							totalPrice = mediumCost;
-							System.out.println("Your total comes to $" + totalPrice);
+							mediumPrice();
 						}
-						if("one".equalsIgnoreCase(toppingsAmount))
+						if("1".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of topping do you want? Extra cheese, green peppers, black olives, onions?");
-							toppingsChoice = input.nextLine();
+							one();
 							if("Extra cheese".equalsIgnoreCase(toppingsChoice)||"Green peppers".equalsIgnoreCase(toppingsChoice)
 									||"Black olives".equalsIgnoreCase(toppingsChoice)||"Onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = mediumCost + 0.50;
-								System.out.println("Your total comes to $" + totalPrice);
+								mediumPrice();
 							}
 						}
-						if("two".equalsIgnoreCase(toppingsAmount))
+						if("2".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
-									+ "Start with topping on most left and end with topping on most right. Ex: extra cheese and onions");
-							toppingsChoice = input.nextLine();
+							two();
 							if("Extra cheese and green peppers".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese and black olives".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese and onions".equalsIgnoreCase(toppingsChoice)
@@ -135,68 +112,51 @@ public class pizzaHut {
 									||"Green peppers and onions".equalsIgnoreCase(toppingsChoice)
 									||"Black olives and onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = mediumCost + 1.00;
-								System.out.println("Your total comes to $" + totalPrice);
+								mediumPrice();
 							}
 						}
-						if("three".equalsIgnoreCase(toppingsAmount))
+						if("3".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
-									+ "Start with topping on most left and end with topping on most right. "
-									+ "Ex: extra cheese, green peppers and onions");
-							toppingsChoice = input.nextLine();
+							three();
 							if("Extra cheese, green peppers and black olives".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese, green peppers and onions".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese, black olives and onions".equalsIgnoreCase(toppingsChoice)
 									||"Green peppers, black olives and onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = mediumCost + 1.50;
-								System.out.println("Your total comes to $" + totalPrice);
+								mediumPrice();
 							}
 						}
-						if("four".equalsIgnoreCase(toppingsAmount))
+						if("4".equals(toppingsAmountString))
 						{
-							System.out.print("You will get extra cheese, green peppers, black olives, and onions on your pizza.");
-							totalPrice = mediumCost + 2.00;
-							System.out.println("Your total comes to $" + totalPrice);
+							toppingsChoice = "extra cheese, green peppers, black olives, and onions";
+							mediumPrice();
 						}
 					}
 				}
 				if ("large".equalsIgnoreCase(size))
 				{
-					System.out.println("You said " + size + " pizza size.");
-					System.out.print("What kind of Pizza do you want? Pepperoni, Sausage, Chesse?");
-					pizzaKind = input.nextLine();
+					type();
 					if("Pepperoni".equalsIgnoreCase(pizzaKind)||"Sausage".equalsIgnoreCase(pizzaKind)||
 							"Cheese".equalsIgnoreCase(pizzaKind))
 					{
-						System.out.print("How many toppings would you like? None, one, two, three, four?");
-						toppingsAmount = input.nextLine();
-						if("none".equalsIgnoreCase(toppingsAmount))
+						System.out.print("How many toppings would you like? 0, 1, 2, 3, 4?");
+						toppingsAmountString = input.nextLine();
+						if("0".equals(toppingsAmountString))
 						{
-							System.out.print("You will get nothing on your pizza.");
-							totalPrice = largeCost;
-							System.out.println("Your total comes to $" + totalPrice);
+							largePrice();
 						}
-						if("one".equalsIgnoreCase(toppingsAmount))
+						if("1".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of topping do you want? Extra cheese, green peppers, black olives, onions?");
-							toppingsChoice = input.nextLine();
+							one();
 							if("Extra cheese".equalsIgnoreCase(toppingsChoice)||"Green peppers".equalsIgnoreCase(toppingsChoice)
 									||"Black olives".equalsIgnoreCase(toppingsChoice)||"Onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = largeCost + 0.50;
-								System.out.println("Your total comes to $" + totalPrice);
+								largePrice();
 							}
 						}
-						if("two".equalsIgnoreCase(toppingsAmount))
+						if("2".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
-									+ "Start with topping on most left and end with topping on most right. Ex: extra cheese and onions");
-							toppingsChoice = input.nextLine();
+							two();
 							if("Extra cheese and green peppers".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese and black olives".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese and onions".equalsIgnoreCase(toppingsChoice)
@@ -204,32 +164,25 @@ public class pizzaHut {
 									||"Green peppers and onions".equalsIgnoreCase(toppingsChoice)
 									||"Black olives and onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = largeCost + 1.00;
-								System.out.println("Your total comes to $" + totalPrice);
+								largePrice();
 							}
 						}
-						if("three".equalsIgnoreCase(toppingsAmount))
+						if("3".equals(toppingsAmountString))
 						{
-							System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
-									+ "Start with topping on most left and end with topping on most right. "
-									+ "Ex: extra cheese, green peppers and onions");
+							three();
 							toppingsChoice = input.nextLine();
 							if("Extra cheese, green peppers and black olives".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese, green peppers and onions".equalsIgnoreCase(toppingsChoice)
 									||"Extra cheese, black olives and onions".equalsIgnoreCase(toppingsChoice)
 									||"Green peppers, black olives and onions".equalsIgnoreCase(toppingsChoice))
 							{
-								System.out.println("You will get " + toppingsChoice + " on your pizza.");
-								totalPrice = largeCost + 1.50;
-								System.out.println("Your total comes to $" + totalPrice);
+								largePrice();
 							}
 						}
-						if("four".equalsIgnoreCase(toppingsAmount))
+						if("4".equals(toppingsAmountString))
 						{
-							System.out.print("You will get extra cheese, green peppers, black olives, and onions on your pizza.");
-							totalPrice = largeCost + 2.00;
-							System.out.println("Your total comes to $" + totalPrice);
+							toppingsChoice = "extra cheese, green peppers, black olives, and onions";
+							largePrice();
 						}
 					}
 				}
@@ -241,7 +194,7 @@ public class pizzaHut {
 			if ("Yes".equalsIgnoreCase(choiceHotDog)||"Y".equalsIgnoreCase(choiceHotDog))
 			{
 				System.out.println("You ordered a hot dog.");
-				totalPrice = 4.99;
+				totalPrice = HOT_DOG_COST;
 				System.out.println("Your total comes to $" + totalPrice);
 			}
 			if ("No".equalsIgnoreCase(choiceHotDog)||"N".equalsIgnoreCase(choiceHotDog))
@@ -249,5 +202,50 @@ public class pizzaHut {
 				System.out.println("Then why are you here?");
 			}
 		}
+	}
+	public static void type()
+	{
+		System.out.println("You said " + size + " pizza size.");
+		System.out.print("What kind of Pizza do you want? Pepperoni, Sausage, Chesse?");
+		pizzaKind = input.nextLine();
+	}
+	public static void smallPrice()
+	{
+		toppingsAmount = Integer.parseInt(toppingsAmountString);
+		System.out.println("You will get " + toppingsChoice + " on your pizza.");
+		totalPrice = totalPrice + SMALL_COST + TOPPINGS_COST * toppingsAmount;
+		System.out.println("Your total comes to $" + totalPrice);
+	}
+	public static void mediumPrice()
+	{
+		toppingsAmount = Integer.parseInt(toppingsAmountString);
+		System.out.println("You will get " + toppingsChoice + " on your pizza.");
+		totalPrice = totalPrice + MEDIUM_COST + TOPPINGS_COST * toppingsAmount;
+		System.out.println("Your total comes to $" + totalPrice);
+	}
+	public static void largePrice()
+	{
+		toppingsAmount = Integer.parseInt(toppingsAmountString);
+		System.out.println("You will get " + toppingsChoice + " on your pizza.");
+		totalPrice = totalPrice + LARGE_COST + TOPPINGS_COST * toppingsAmount;
+		System.out.println("Your total comes to $" + totalPrice);
+	}
+	public static void one()
+	{
+		System.out.print("What kind of topping do you want? Extra cheese, green peppers, black olives, onions?");
+		toppingsChoice = input.nextLine();
+	}
+	public static void two()
+	{
+		System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
+				+ "Start with topping on most left and end with topping on most right. Ex: extra cheese and onions");
+		toppingsChoice = input.nextLine();
+	}
+	public static void three()
+	{
+		System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
+				+ "Start with topping on most left and end with topping on most right. "
+				+ "Ex: extra cheese, green peppers and onions");
+		toppingsChoice = input.nextLine();
 	}
 }
