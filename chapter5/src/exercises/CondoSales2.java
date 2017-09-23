@@ -33,7 +33,7 @@ public class CondoSales2 {
 		JOptionPane.showMessageDialog(null, "You chose " + condoView + " with a " + parking + 
 				" for a price of $" + price);
 	}
-	public static parkingArea() {
+	public static void parkingArea() {
 		parking = JOptionPane.showInputDialog(null, "Where would you like to park?\n1 - Garage" +
 				"\n2 - Parking space");
 			if ("1".equals(parking))
