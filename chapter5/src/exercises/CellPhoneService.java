@@ -21,9 +21,9 @@ public class CellPhoneService {
 		final int PLAN_E = 79;
 		final int PLAN_F = 87;
 		
-		talkMin = JOptionPane.showMessageInput(null, "What's the maximum number of minutes of talk do you need?");
-		textMsgs = JOptionPane.showMessageInput(null, "What's the maximum number of text messages do you need?");
-		dataGigs = JOptionPane.showMessageInput(null, "What's the maximum number of gigabytes of data do you need?");
+		talkMin = JOptionPane.showInputDialog(null, "What's the maximum number of minutes of talk do you need?");
+		textMsgs = JOptionPane.showInputDialog(null, "What's the maximum number of text messages do you need?");
+		dataGigs = JOptionPane.showInputDialog(null, "What's the maximum number of gigabytes of data do you need?");
 		
 		talkMinutes = Integer.parseInt(talkMin);
 		textMessages = Integer.parseInt(textMsgs);
