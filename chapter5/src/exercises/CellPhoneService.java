@@ -25,9 +25,9 @@ public class CellPhoneService {
 		textMsgs = JOptionPane.showMessageInput(null, "What's the maximum number of text messages do you need?");
 		dataGigs = JOptionPane.showMessageInput(null, "What's the maximum number of gigabytes of data do you need?");
 		
-		talkMinutes = integer.parseInt(talkMin);
-		textMessages = integer.parseInt(textMsgs);
-		dataGigabytes = integer.parseInt(dataGigs);
+		talkMinutes = Integer.parseInt(talkMin);
+		textMessages = Integer.parseInt(textMsgs);
+		dataGigabytes = Integer.parseInt(dataGigs);
 		
 		if ((talkMinutes < MINUTES) && (textMessages == 0) && (dataGigabytes == 0))
 			JOptionPane.showMessageDialog(null, "Plan A is the best option with fewer than " + MINUTES +
