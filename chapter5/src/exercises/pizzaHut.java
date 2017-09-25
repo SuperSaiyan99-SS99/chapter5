@@ -13,7 +13,7 @@ public class pizzaHut {
 	public static final double LARGE_COST = 12.99;
 	public static final double SMALL_COST = 6.99;
 	public static final double TOPPINGS_COST = 0.50;
-	public static final double totalPrice = 0.00;
+	public static double totalPrice = 0.00;
 	public static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -139,7 +139,7 @@ public class pizzaHut {
 					if("Pepperoni".equalsIgnoreCase(pizzaKind)||"Sausage".equalsIgnoreCase(pizzaKind)||
 							"Cheese".equalsIgnoreCase(pizzaKind))
 					{
-						System.out.print("How many toppings would you like? 0, 1, 2, 3, 4?");
+						System.out.print("How many toppings would you like? 0, 1, 2, 3, 4? >>>>>> ");
 						toppingsAmountString = input.nextLine();
 						if("0".equals(toppingsAmountString))
 						{
@@ -189,7 +189,7 @@ public class pizzaHut {
 		}
 		if("No".equalsIgnoreCase(choiceYes)||"N".equalsIgnoreCase(choiceYes))
 		{
-			System.out.print("Would you like a hot dog? Yes or No?");
+			System.out.print("Would you like a hot dog? Yes or No? >>>>>> ");
 			choiceHotDog = input.nextLine();
 			if ("Yes".equalsIgnoreCase(choiceHotDog)||"Y".equalsIgnoreCase(choiceHotDog))
 			{
@@ -206,7 +206,7 @@ public class pizzaHut {
 	public static void type()
 	{
 		System.out.println("You said " + size + " pizza size.");
-		System.out.print("What kind of Pizza do you want? Pepperoni, Sausage, Chesse?");
+		System.out.print("What kind of Pizza do you want? Pepperoni, Sausage, Chesse? >>>>>> ");
 		pizzaKind = input.nextLine();
 	}
 	public static void smallPrice()
@@ -232,20 +232,20 @@ public class pizzaHut {
 	}
 	public static void one()
 	{
-		System.out.print("What kind of topping do you want? Extra cheese, green peppers, black olives, onions?");
+		System.out.print("What kind of topping do you want? Extra cheese, green peppers, black olives, onions? >>>>>> ");
 		toppingsChoice = input.nextLine();
 	}
 	public static void two()
 	{
 		System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
-				+ "Start with topping on most left and end with topping on most right. Ex: extra cheese and onions");
+				+ "Start with topping on most left and end with topping on most right. Ex: extra cheese and onions >>>>>>");
 		toppingsChoice = input.nextLine();
 	}
 	public static void three()
 	{
 		System.out.print("What kind of toppings do you want? Extra cheese, green peppers, black olives, onions? "
 				+ "Start with topping on most left and end with topping on most right. "
-				+ "Ex: extra cheese, green peppers and onions");
+				+ "Ex: extra cheese, green peppers and onions >>>>>> ");
 		toppingsChoice = input.nextLine();
 	}
 }

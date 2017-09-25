@@ -1,6 +1,6 @@
 package exercises;
 
-import javax.swing.JOptionPane
+import javax.swing.JOptionPane;
 
 public class CellPhoneService {
 	
@@ -29,25 +29,28 @@ public class CellPhoneService {
 		textMessages = Integer.parseInt(textMsgs);
 		dataGigabytes = Integer.parseInt(dataGigs);
 		
-		if ((talkMinutes < MINUTES) && (textMessages == 0) && (dataGigabytes == 0))
+		if ((talkMinutes < MINUTES) && (textMessages == 0) && (dataGigabytes == 0)) {
 			JOptionPane.showMessageDialog(null, "Plan A is the best option with fewer than " + MINUTES +
 					" minutes of talk, no text, and no data at a price of $" + PLAN_A);
-		if ((talkMinutes < MINUTES) && (textMessages > 0) && (dataGigabytes == 0))
+		} else if ((talkMinutes < MINUTES) && (textMessages > 0) && (dataGigabytes == 0)) {
 			JOptionPane.showMessageDialog(null, "Plan B is the best option with fewer than " + MINUTES +
 					" minutes of talk, any text messages, and no data at a price of $" + PLAN_B);
-		if ((talkMinutes > MINUTES) && (textMessages < MESSAGES) && (dataGigabytes == 0))
+		} else if ((talkMinutes > MINUTES) && (textMessages < MESSAGES) && (dataGigabytes == 0)) {
 			JOptionPane.showMessageDialog(null, "Plan C is the best option with more than " + MINUTES +
 					" minutes of talk, less than " + MESSAGES +
 					" text messages, and no data at a price of $" + PLAN_C);
-		if ((talkMinutes > MINUTES) && (textMessages > MESSAGES) && (dataGigabytes == 0))
+		} else if ((talkMinutes > MINUTES) && (textMessages > MESSAGES) && (dataGigabytes == 0)) {
 			JOptionPane.showMessageDialog(null, "Plan D is the best option with more than " + MINUTES +
 					" minutes of talk, more than " + MESSAGES +
 					" text messages, and no data at a price of $" + PLAN_D);
-		if ((talkMinutes == 0) && (textMessages == 0) && (dataGigabytes < GIGABYTES))
+		} else if ((talkMinutes == 0) && (textMessages == 0) && (dataGigabytes < GIGABYTES)) {
 			JOptionPane.showMessageDialog(null, "Plan E is the best option with no talk, no text, and less than " + 
 					GIGABYTES + " gigabytes of data at a price of $" + PLAN_E);
-		if ((talkMinutes == 0) && (textMessages == 0) && (dataGigabytes > GIGABYTES))
+		} else if ((talkMinutes == 0) && (textMessages == 0) && (dataGigabytes > GIGABYTES)) {
 			JOptionPane.showMessageDialog(null, "Plan F is the best option with no talk, no text, and more than " +
 					GIGABYTES + " gigabytes of data at a price of $" + PLAN_F);
+		} else {
+			JOptionPane.showMessageDialog(null, "You have too many needs.");
+		}
 	}
 }
